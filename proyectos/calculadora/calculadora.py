@@ -97,6 +97,7 @@ def main() -> int:
                 if linea.strip() == 'salir':
                     return 0
                 if not linea.strip():
+                    print("Formato esperado: a op b (ej. 3 + 4) o 'salir'")
                     continue
                 try:
                     linea_con_ans = linea.replace('ans', str(ans))
@@ -119,5 +120,4 @@ def main() -> int:
     return 2
 
 if __name__ == '__main__':
-    sys.exit(main())
-# prueba git
+    sys.exit(main())    

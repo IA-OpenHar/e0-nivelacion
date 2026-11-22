@@ -33,12 +33,10 @@ if __name__ == '__main__':
     assert buscar_con_presupuesto(100, 1, 100, 10) == 7
     assert buscar_con_presupuesto(37, 1, 100, 2) == -1
     assert buscar_con_presupuesto(150, 1, 100, 10) == -1
-    print('Todas las prueban pasan')
-    
+    print('Todas las pruebas pasan')   
     peor_caso = 0
     for s in range(1, 101):
         intentos = buscar_con_presupuesto(s, 1, 100, 10)
         if intentos > peor_caso:
             peor_caso = intentos
     print('Peor caso de 1 a 100:', peor_caso)
-    
