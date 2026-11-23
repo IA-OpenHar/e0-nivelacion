@@ -1,0 +1,48 @@
+# Bloque B3 - Missing Semester clase 4: grep, sed y pipes
+
+## Los 8 pipelines
+
+1. ¿Cuántos eventos tiene el log?
+wc -l < traza_agente.log
+# Salida: 20
+
+2. Conteo por tipo de evento
+grep -o 'evento=[a-z_]*' traza_agente.log | sort | uniq -c | sort -nr
+# Salida:
+#   9 evento=tool_call
+#   3 evento=inicio
+#   3 evento=handoff
+#   3 evento=fin
+#   2 evento=compaction
+
+3. ¿Cuántos eventos ocurrieron con el monitor apagado?
+grep -c 'monitor=off' traza_agente.log
+# Salida: 6
+
+4. Fracción sin monitoreo
+echo "scale=2; $(grep -c 'monitor=off' traza_agente.log) / $(wc -l < traza_agente.log)" | bc
+# Salida: .30
+
+5. Herramientas usadas (sed con grupo de captura)
+grep 'herramienta=' traza_agente.log | sed -E 's/.*herramienta=([a-z_]+).*/\1/' | sort | uniq -c | sort -nr
+# Salida:
+#   4 bash
+#   2 leer_archivo
+#   2 buscar_web
+#   1 editar_config
+
+6. ¿Qué agente concentra los eventos sin monitor?
+grep 'monitor=off' traza_agente.log | sed -E 's/.*agente=([a-z0-9]+).*/\1/' | sort | uniq -c | sort -nr
+# Salida:
+#   4 a1
+#   4 a1
+
+tor=off' traza_agente.log | sed -E 's/.�s de una tor=off' traza_p -A1tor=off' traza_agente.log | gente.lotor=off' traza_agen11-23Ttor=o:30 agente=a1 evento=compaction monitotor=off' traza_agente.log | sed -E 's/.�s de una tor=off' traza_p -Aash monitor=off
+# --
+# 2026-11-23T10:31:11 agente=a3 evento=compaction monit# 2026-11-23T111-# 2026-11-23T10:31:11 eve# 2026-11-23T10:31:11 agente=a3 evento=compaction monitsm# 2026-11-23T10:31:11 agente=a3 evterce# campo)
+awk awk awk awk awk awk awnte.lawk awk awk awk awk awk awnte.lawk awk awk awk awk awk awnte.lawk awk awk awk awk awk awnte
+##### evento=ini##### evento=ini##### evento=ini##### evento=ijerc##### evento=ini##### evento=ini##### evento=ini##### evento=ijerc##### evento=ini##### evento=ini##### ealineado:
+InmediatamenteInmedia�s de cada cInmediatamenmbos agentes ejecutan un tInmediatamenteInmedia�s de cada cInmediatame.
+Como la compaction resume y comprime el historial de contexto previo, se pierde o debilita la trazabilidad inmediata de las instrucciones iComo la compaction resume y comprime el historial de contexto previo, se pierde o debilita la trazabilidad inmediata de las instrucciones iComo la compaction resume y comprime el historial de contexto previo, se pierde o debilita la trazabilidad inmediatamadas aComo la compaction resume y comprime el historial de contexto previo, se pierde o debilita la trazabilidad inmediata de las instrucciones iComo la compaction resume y comprime el historial de contexto lComo la compaction resume y comprime el historial de contexto previo, se pierde o debilita la trazabilidad inmediata dtal_mComo la compaction resume y comprime el historial de contexto previo, se pierde o debilita la trazabilidad inmediata de las instrucciones iComo la compaction resume y comprime el Usaría el comando: grep 'herramienta=editar_config.*monitor=off' traza_agente.log
+Este patrón filtra exactamente las líneas donde se modifica la configuración mientras la vigilancia está desactivada.
+Si el comando devuelve alguna salida (código de estado 0), dispara una alerta inmediata al equipo de seguridad.
