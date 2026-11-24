@@ -1,6 +1,3 @@
-mkdir -p ~/estudio/e0/matematica
-
-cat << 'EOF' > ~/estudio/e0/matematica/dia06_exponenciales.md
 # Día 6 - Bloque B1: Funciones exponenciales
 
 ## Respuestas Problemas 1–6
@@ -32,4 +29,3 @@ cat << 'EOF' > ~/estudio/e0/matematica/dia06_exponenciales.md
      - $x = 9 \rightarrow f(9) = 550,\; g(9) = 512$
      - $x = 10 \rightarrow f(10) = 600,\; g(10) = 1024$
      - $x = 11 \rightarrow f(11) = 650,\; g(11) = 2048$
-EOF

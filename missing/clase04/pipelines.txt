@@ -43,8 +43,8 @@ grep -A1 'evento=compaction' traza_agente.log
 # 2026-11-23T10:30:30 agente=a1 evento=compaction monitor=off
 # 2026-11-23T10:30:31 agente=a1 evento=tool_call herramienta=bash monitor=off
 # --
-# 2026-11-23T11:15:10 agente=a3 evento=compaction monitor=off
-# 2026-11-23T11:15:11 agente=a3 evento=tool_call herramienta=buscar_web monitor=off
+# 2026-11-23T10:31:11 agente=a3 evento=compaction monitor=off
+# 2026-11-23T10:31:12 agente=a3 evento=tool_call herramienta=buscar_web monitor=off
 
 8. Mismo conteo que el 2, ahora con awk (tercer campo)
 awk '{print $3}' traza_agente.log | sort | uniq -c
