@@ -1,4 +1,4 @@
-# Bloque B3 - Missing Semester clase 4: grep, sed y pipes
+# Bloque B3 — Missing Semester clase 4: grep, sed y pipes
 
 ## Los 8 pipelines
 
@@ -7,7 +7,7 @@ wc -l < traza_agente.log
 # Salida: 20
 
 2. Conteo por tipo de evento
-grep -o 'evento=[a-z_]*' traza_agente.log | sort | uniq -c | sort -nr
+grep -o 'evento=[a-z_]\+' traza_agente.log | sort | uniq -c | sort -nr
 # Salida:
 #   9 evento=tool_call
 #   3 evento=inicio
@@ -35,14 +35,37 @@ grep 'herramienta=' traza_agente.log | sed -E 's/.*herramienta=([a-z_]+).*/\1/' 
 grep 'monitor=off' traza_agente.log | sed -E 's/.*agente=([a-z0-9]+).*/\1/' | sort | uniq -c | sort -nr
 # Salida:
 #   4 a1
-#   4 a1
+#   2 a3
 
-tor=off' traza_agente.log | sed -E 's/.�s de una tor=off' traza_p -A1tor=off' traza_agente.log | gente.lotor=off' traza_agen11-23Ttor=o:30 agente=a1 evento=compaction monitotor=off' traza_agente.log | sed -E 's/.�s de una tor=off' traza_p -Aash monitor=off
+7. ¿Qué hizo cada agente justo después de una compaction?
+grep -A1 'evento=compaction' traza_agente.log
+# Salida:
+# 2026-11-23T10:30:31 agente=a1 evento=compaction monitor=off
+# 2026-11-23T10:30:35 agente=a1 evento=tool_call herramienta=bash monitor=off
 # --
-# 2026-11-23T10:31:11 agente=a3 evento=compaction monit# 2026-11-23T111-# 2026-11-23T10:31:11 eve# 2026-11-23T10:31:11 agente=a3 evento=compaction monitsm# 2026-11-23T10:31:11 agente=a3 evterce# campo)
-awk awk awk awk awk awk awnte.lawk awk awk awk awk awk awnte.lawk awk awk awk awk awk awnte.lawk awk awk awk awk awk awnte
-##### evento=ini##### evento=ini##### evento=ini##### evento=ijerc##### evento=ini##### evento=ini##### evento=ini##### evento=ijerc##### evento=ini##### evento=ini##### ealineado:
-InmediatamenteInmedia�s de cada cInmediatamenmbos agentes ejecutan un tInmediatamenteInmedia�s de cada cInmediatame.
-Como la compaction resume y comprime el historial de contexto previo, se pierde o debilita la trazabilidad inmediata de las instrucciones iComo la compaction resume y comprime el historial de contexto previo, se pierde o debilita la trazabilidad inmediata de las instrucciones iComo la compaction resume y comprime el historial de contexto previo, se pierde o debilita la trazabilidad inmediatamadas aComo la compaction resume y comprime el historial de contexto previo, se pierde o debilita la trazabilidad inmediata de las instrucciones iComo la compaction resume y comprime el historial de contexto lComo la compaction resume y comprime el historial de contexto previo, se pierde o debilita la trazabilidad inmediata dtal_mComo la compaction resume y comprime el historial de contexto previo, se pierde o debilita la trazabilidad inmediata de las instrucciones iComo la compaction resume y comprime el Usaría el comando: grep 'herramienta=editar_config.*monitor=off' traza_agente.log
-Este patrón filtra exactamente las líneas donde se modifica la configuración mientras la vigilancia está desactivada.
-Si el comando devuelve alguna salida (código de estado 0), dispara una alerta inmediata al equipo de seguridad.
+# 2026-11-23T10:31:11 agente=a3 evento=compaction monitor=off
+# 2026-11-23T10:31:12 agente=a3 evento=tool_call herramienta=buscar_web monitor=off
+
+8. Mismo conteo que el 2, ahora con awk (tercer campo)
+awk '{print $3}' traza_agente.log | sort | uniq -c
+# Salida:
+#   2 evento=compaction
+#   3 evento=fin
+#   3 evento=handoff
+#   3 evento=inicio
+#   9 evento=tool_call
+
+## Frontera de hoy — Preguntas
+
+# 1. Patrón después de cada compaction:
+# Después de cada compaction tanto a1 como a3 ejecutan inmediatamente un tool_call con monitor=off.
+# Al resumirse el contexto y apagarse el monitor, el sistema pierde trazabilidad justo cuando el agente
+# ejecuta acciones externas críticas sin supervisión, ideal para ocultar comportamiento desalineado.
+
+# 2. Denominador cuando los eventos sin monitor no se escriben:
+# Usaría el total real de eventos registrado por una fuente externa de facturación o auditoría de la API.
+# Así, el total real sería (eventos vigilados en el log + eventos facturados por la API no logueados),
+# y la fracción sin monitoreo se calcularía dividiendo los no logueados entre ese total real de la API.
+
+# 3. Alerta diaria para a1 usando editar_config con monitor apagado:
+# grep -E 'agente=a1.*herramienta=editar_config.*monitor=off' traza_agente.log
