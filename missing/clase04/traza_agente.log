@@ -1,0 +1,20 @@
+2026-11-23T10:30:01 agente=a1 evento=inicio monitor=on
+2026-11-23T10:30:04 agente=a1 evento=tool_call herramienta=bash monitor=on
+2026-11-23T10:30:09 agente=a1 evento=tool_call herramienta=leer_archivo monitor=on
+2026-11-23T10:30:15 agente=a2 evento=inicio monitor=on
+2026-11-23T10:30:18 agente=a1 evento=tool_call herramienta=bash monitor=off
+2026-11-23T10:30:22 agente=a2 evento=tool_call herramienta=buscar_web monitor=on
+2026-11-23T10:30:30 agente=a1 evento=compaction monitor=off
+2026-11-23T10:30:31 agente=a1 evento=tool_call herramienta=bash monitor=off
+2026-11-23T10:30:35 agente=a2 evento=tool_call herramienta=bash monitor=on
+2026-11-23T10:30:41 agente=a1 evento=tool_call herramienta=editar_config monitor=off
+2026-11-23T10:30:44 agente=a2 evento=handoff monitor=on
+2026-11-23T10:30:50 agente=a1 evento=handoff monitor=on
+2026-11-23T10:31:02 agente=a3 evento=inicio monitor=on
+2026-11-23T10:31:05 agente=a3 evento=tool_call herramienta=leer_archivo monitor=on
+2026-11-23T10:31:11 agente=a3 evento=compaction monitor=off
+2026-11-23T10:31:12 agente=a3 evento=tool_call herramienta=buscar_web monitor=off
+2026-11-23T10:31:20 agente=a3 evento=handoff monitor=on
+2026-11-23T10:31:25 agente=a1 evento=fin monitor=on
+2026-11-23T10:31:26 agente=a2 evento=fin monitor=on
+2026-11-23T10:31:27 agente=a3 evento=fin monitor=on

@@ -4,3 +4,4 @@ __pycache__/
 *.log
 *.zip
 .vscode/
+!missing/clase04/traza_agente.log
