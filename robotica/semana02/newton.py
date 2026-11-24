@@ -2,6 +2,8 @@
 
 G = 9.81  # m/s², gravedad estándar en superficie
 KG_POR_LIBRA = 0.45359237  # definición exacta de la libra avoirdupois
+
+
 def _validar_masa(masa: float) -> None:
     if masa <= 0:
         raise ValueError("La masa debe ser mayor que 0.")
