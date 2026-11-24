@@ -10,3 +10,4 @@ Etapa 0 (nivelación) de mi plan de estudios de Ingeniería de IA, Ciencia de Da
 Pruebas de la calculadora:
 `python3 proyectos/calculadora/test_calculadora.py`
 - Día 7: ramas y merge (Pro Git cap. 3)
+- Rama divergente: cambio en el README
