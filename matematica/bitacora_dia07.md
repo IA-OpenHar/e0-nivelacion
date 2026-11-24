@@ -1,0 +1,2 @@
+- Día 7: ramas y merge (Pro Git cap. 3)
+- Rama divergente: cambio en el README

@@ -1,6 +1,8 @@
 """py4e cap. 7 · filtrar líneas de un archivo y promediar un campo."""
 
 PREFIJO_CONFIANZA = "X-DSPAM-Confidence:"
+
+
 def lineas_que_empiezan(ruta: str, prefijo: str) -> list[str]:
     """Devuelve, sin el salto final, las líneas que empiezan con `prefijo`.
 
@@ -12,6 +14,8 @@ def lineas_que_empiezan(ruta: str, prefijo: str) -> list[str]:
             if linea.startswith(prefijo):
                 encontradas.append(linea.rstrip("\r\n"))
     return encontradas
+
+
 def promedio_confianza(ruta: str) -> float:
     """Promedio de los números de las líneas que empiezan con PREFIJO_CONFIANZA.
 
