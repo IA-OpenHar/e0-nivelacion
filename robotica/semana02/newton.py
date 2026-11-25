@@ -54,6 +54,7 @@ def libras_a_kg(libras: float) -> float:
     """Convierte libras a kilogramos."""
     return libras * KG_POR_LIBRA
 
+
 if __name__ == "__main__":
     caja = libras_a_kg(154)
     print(f"Caja de 154 lb = {caja:.2f} kg; fuerza para sostenerla: {peso(caja):.1f} N")
