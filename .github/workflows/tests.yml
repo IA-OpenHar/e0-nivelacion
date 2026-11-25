@@ -1,0 +1,34 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  # Permite relanzar la suite desde la pestaña Actions sin un commit vacío.
+  workflow_dispatch:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    # Un test colgado (bucle infinito, input() olvidado) no debe quemar minutos de CI.
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+          # Reutiliza la caché de pip mientras requirements.txt no cambie.
+          cache: pip
+          cache-dependency-path: py4e/requirements.txt
+
+      - name: Instalar dependencias
+        # Mismas versiones fijadas que en local: un fallo en CI significa
+        # código roto, no una versión distinta de pytest.
+        run: pip install -r py4e/requirements.txt
+
+      - name: Ejecutar pruebas
+        # Desde la raíz: pytest añade al sys.path la carpeta de cada test_*.py,
+        # así los imports entre archivos hermanos funcionan sin __init__.py.
+        # Los scripts con input() no se importan porque no son test_*.py.
+        run: python -m pytest -v
