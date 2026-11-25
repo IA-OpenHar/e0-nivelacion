@@ -1,5 +1,5 @@
 # e0-nivelacion
-![Tests](https://github.com)
+![Tests](https://github.com/IA-OpenHar/e0-nivelacion/actions/workflows/tests.yml/badge.svg)
 
 Etapa 0 (nivelación) de mi plan de estudios de Ingeniería de IA, Ciencia de Datos y Robótica.
 
