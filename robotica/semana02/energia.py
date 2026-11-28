@@ -11,7 +11,9 @@ def _validar_positivo(valor: float, nombre: str) -> None:
         raise ValueError(f"{nombre} debe ser mayor que cero.")
 
 
-def trabajo(fuerza: float, distancia: float, angulo_grados: float = 0.0) -> float:
+def trabajo(
+        fuerza: float, distancia: float, angulo_grados: float = 0.0
+) -> float:
     """Trabajo (J) de una fuerza constante: F · d · cos θ.
 
     θ es el ángulo entre la fuerza y el desplazamiento.

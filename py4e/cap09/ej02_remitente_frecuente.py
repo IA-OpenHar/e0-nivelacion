@@ -50,14 +50,21 @@ def dominios(conteo: dict[str, int]) -> dict[str, int]:
     for correo, cantidad in conteo.items():
         pos_arroba = correo.find("@")
         if pos_arroba != -1:
-            dominio = correo[pos_arroba + 1 :]
-            conteo_dominios[dominio] = conteo_dominios.get(dominio, 0) + cantidad
+            dominio = correo[pos_arroba + 1:]
+            conteo_dominios[dominio] = (
+                conteo_dominios.get(dominio, 0) + cantidad
+            )
     return conteo_dominios
 
 
 if __name__ == "__main__":
     with open(ARCHIVO, encoding="utf-8") as f:
-        conteo = remitentes(f.readlines())
-    print(len(conteo), "direcciones,", sum(conteo.values()), "mensajes")
-    print("Más frecuente:", remitente_frecuente(conteo))
-    print(dominios(conteo))
+        conteo_correos = remitentes(f.readlines())
+    print(
+        len(conteo_correos),
+        "direcciones,",
+        sum(conteo_correos.values()),
+        "mensajes",
+    )
+    print("Más frecuente:", remitente_frecuente(conteo_correos))
+    print(dominios(conteo_correos))
