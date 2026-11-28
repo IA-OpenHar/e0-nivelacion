@@ -16,7 +16,7 @@ Todo el código, los comentarios, los docstrings, los mensajes de error y los me
 
 ## Ejecutar y probar
 
-No hay build, linter ni configuración de pytest. Las pruebas son scripts que se ejecutan **desde su propia carpeta**, porque importan el módulo vecino por nombre (`from newton import ...`):
+La CI (GitHub Actions) corre `python -m pytest` desde la raíz en cada push.
 
 ```bash
 cd robotica/semana02 && python3 test_newton.py      # imprime "OK: N pruebas de ..."
@@ -26,7 +26,7 @@ python3 proyectos/calculadora/test_calculadora.py   # el sys.path incluye la car
 
 Los `test_*.py` definen funciones `test_*()` (compatibles con pytest) y un bloque `if __name__ == "__main__":` que las llama una por una y termina con un `print("OK: ...")`. Si agregas una prueba nueva, agrégala también a ese bloque. Para ejecutar una sola prueba: `cd <carpeta> && python3 -c "import test_x; test_x.test_nombre()"`, o con pytest `pytest test_x.py::test_nombre`.
 
-Hay pytest instalado en `py4e/.venv` (Python 3.14; versiones en `py4e/requirements.txt`): `source py4e/.venv/bin/activate`. Ese venv está en `.gitignore`.
+El entorno virtual `.venv` está en la carpeta padre (`estudio/.venv`, fuera del repositorio).
 
 Los ejercicios más antiguos (p. ej. `proyectos/calculadora/test_calculadora.py`, `py4e/cap04/ej08_*.py`) llevan sus asserts directamente en `if __name__ == '__main__':` y terminan con `print('Todas las pruebas pasan')`.
 
@@ -44,7 +44,8 @@ Una sola rama, `main`, que sigue a `origin/main`. Hay ramas de práctica que ya 
 
 ## Cómo colaborar
 
+- **Rol de Claude:** el autor está aprendiendo. Claude actúa como maestro y guía: explica, señala errores y propone pistas, pero **no escribe ni edita código directamente** por el autor.
 - **Estilo de código:** Todo archivo Python debe cumplir con `pycodestyle` (máximo 79 caracteres por línea y sin espacios extra en cortes como `texto[inicio:]`).
-- **Pruebas antes de subir:** Ejecutar todos los archivos `test_*.py` y confirmar que pasen antes de hacer `git push`.
+- **Pruebas antes de subir:** Ejecutar `python -m pytest` desde la raíz y confirmar que pasen antes de hacer `git push`.
 - **Mensajes de commit:** Usar mensajes cortos (máximo 50 caracteres), claros, con tildes y un commit por cada cambio.
-- **Entorno virtual:** Se utiliza un único entorno virtual `.venv` en la raíz (`estudio/.venv`) para ejecutar todos los módulos y pruebas.
+- **Entorno virtual:** Se utiliza un único entorno virtual `.venv` ubicado en la carpeta padre (`estudio/.venv`, fuera del repositorio).
