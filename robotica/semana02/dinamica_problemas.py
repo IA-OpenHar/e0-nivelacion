@@ -14,7 +14,9 @@ def _validar_masas(*masas: float) -> None:
 def _validar_mu_k(mu_k: float) -> None:
     """Valida que el coeficiente de fricción cinética no sea negativo."""
     if mu_k < 0:
-        raise ValueError("El coeficiente de fricción mu_k no puede ser negativo")
+        raise ValueError(
+            "El coeficiente de fricción mu_k no puede ser negativo"
+        )
 
 
 def aceleracion_atwood(m1: float, m2: float, g: float = G) -> float:
