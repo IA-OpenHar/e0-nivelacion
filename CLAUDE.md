@@ -41,3 +41,10 @@ Los ejercicios más antiguos (p. ej. `proyectos/calculadora/test_calculadora.py`
 ## Git
 
 Una sola rama, `main`, que sigue a `origin/main`. Hay ramas de práctica que ya se fusionaron (p. ej. `practica/divergente`). `.gitignore` excluye `*.log` y `*.zip`, con una excepción explícita para `missing/clase04/traza_agente.log`, que se versiona porque los pipelines dependen de él.
+
+## Cómo colaborar
+
+- **Estilo de código:** Todo archivo Python debe cumplir con `pycodestyle` (máximo 79 caracteres por línea y sin espacios extra en cortes como `texto[inicio:]`).
+- **Pruebas antes de subir:** Ejecutar todos los archivos `test_*.py` y confirmar que pasen antes de hacer `git push`.
+- **Mensajes de commit:** Usar mensajes cortos (máximo 50 caracteres), claros, con tildes y un commit por cada cambio.
+- **Entorno virtual:** Se utiliza un único entorno virtual `.venv` en la raíz (`estudio/.venv`) para ejecutar todos los módulos y pruebas.
