@@ -1,0 +1,11 @@
+Un robot que aprende no nace sabiendo. Primero mide el mundo con sus sensores,
+después decide con un modelo y al final actúa con sus motores. Si el robot se
+equivoca, el error vuelve como dato, y el dato corrige al modelo.
+
+El modelo no ve el mundo: ve números. La cámara entrega números, el motor
+recibe números y el robot vive entre los dos. Por eso un ingeniero que quiere
+construir robots que aprenden necesita tres cosas: matemática para entender
+los números, programación para moverlos y física para saber qué significan.
+
+Un robot sin datos no aprende. Un modelo sin pruebas no merece confianza. Y un
+ingeniero sin constancia no termina el robot.

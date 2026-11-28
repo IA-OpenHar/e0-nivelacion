@@ -10,3 +10,7 @@ Etapa 0 (nivelación) de mi plan de estudios de Ingeniería de IA, Ciencia de Da
 
 Pruebas de la calculadora:
 `python3 proyectos/calculadora/test_calculadora.py`
+Pruebas de todo el repositorio:
+`python -m pytest`
+Pruebas del mini-proyecto de frecuencia:
+`python3 proyectos/frecuencia_palabras/test_frecuencia.py`
