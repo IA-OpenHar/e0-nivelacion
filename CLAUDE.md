@@ -16,7 +16,7 @@ Todo el código, los comentarios, los docstrings, los mensajes de error y los me
 
 ## Ejecutar y probar
 
-La CI (GitHub Actions) corre `python -m pytest` desde la raíz en cada push.
+La CI (GitHub Actions) corre `python -m pytest` desde la raíz en cada push. Cada prueba también se puede ejecutar desde su propia carpeta:
 
 ```bash
 cd robotica/semana02 && python3 test_newton.py      # imprime "OK: N pruebas de ..."
